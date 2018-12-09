@@ -1,0 +1,11 @@
+# To use common configuration in %APPDATA%\mintty, simply remove this file
+Language=
+ThemeFile=base16-seti.minttyrc
+Transparency=off
+CursorType=block
+Font=DejaVu Sans Mono for Powerline
+FontHeight=12
+BoldAsFont=yes
+BoldAsColour=yes
+FontSmoothing=default
+Term=xterm-256color
