@@ -1,0 +1,106 @@
+" Cross-platform Vim Configuration goes in this file
+"
+" Contents
+" Main configuration
+" Visual Configuration
+" Shortcut Key Configuration
+" Plugin Configuration
+" Private Configuration
+"
+
+" ----------- Main Configuration ----------------------------------
+
+set nocompatible                         "don't need to keep compatibility with Vi
+filetype plugin indent on                "enable detection, plugins and indenting in one step
+syntax on                                "Turn on syntax highlighting
+set encoding=utf-8                       "Force UTF-8 encoding for special characters
+"set ruler                                "Turn on the ruler
+set number                               "Show line numbers
+set scrolloff=10                         "Keep 10 lines below cursor always
+set cursorline                           "underline the current line in the file
+"set cursorcolumn                         "highlight the current column. Visible in GUI mode only.
+"set colorcolumn=80
+
+"set background=dark                      "make vim use colors that look good on a dark background
+
+set showcmd                              "show incomplete cmds down the bottom
+set showmode                             "show current mode down the bottom
+set foldenable                           "enable folding
+set showmatch                            "set show matching parenthesis
+"set virtualedit=all                      "allow the cursor to go in to "invalid" places
+set incsearch                            "find the next match as we type the search
+set hlsearch                             "hilight searches by default
+set ignorecase                           "ignore case when searching
+
+set shiftwidth=4                         "number of spaces to use in each autoindent step
+set tabstop=4                            "two tab spaces
+set softtabstop=4                        "number of spaces to skip or insert when <BS>ing or <Tab>ing
+set expandtab                            "spaces instead of tabs for better cross-editor compatibility
+set smarttab                             "use shiftwidth and softtabstop to insert or delete (on <BS>) blanks
+set shiftround                           "when at 5 spaces, and I hit > ... go to 6, not 7
+set nowrap                               "no wrapping
+
+set backspace=indent,eol,start           "allow backspacing over everything in insert mode
+"set cindent                              "recommended seting for automatic C-style indentation
+set autoindent                           "automatic indentation in non-C files
+"set copyindent                           "copy the previous indentation on autoindenting
+"set smartindent
+
+set noerrorbells                         "don't make noise
+
+"set mouse-=a                            "disable mouse automatically entering visual mode
+set mouse=a                              "enable mouse automatically entering visual mode
+set hidden                               "allow hiding buffers with unsaved changes
+set cmdheight=2                          "make the command line a little taller to hide 'press enter to viem more' text
+
+set lazyredraw                           "Vim 8 syntax highlighting on macOS is slow.
+
+" ----------- Visual Configuration ----------------------------------
+" try
+"   colorscheme mycontrast
+" catch
+"   colorscheme murphy
+" endtry
+
+" Toggle background color for light and dark.
+" Default is dark.
+" function! ColorToggle()
+"   if(g:colors_name == \"mycontrast")
+"     colorscheme zellner
+"   else
+"     colorscheme mycontrast
+"   endif
+" endfunc
+
+" nnoremap <F8> :call ColorToggle()<cr>
+
+
+" ----------- Plugin Configuration ----------------------------------
+
+" ---- NERDTree  configuration
+
+" Open NERDTree with [,d]
+"map <Leader>d :NERDTreeToggle<CR>
+
+"let NERDTreeShowLineNumbers=1
+"let NERDTreeMinimalUI=1
+"let NERDTreeShowHidden=1
+"let g:nerdtree_tabs_focus_on_files=1
+"let g:nerdtree_tabs_open_on_console_startup=1
+"let g:NERDTreeWinPos = \"left"
+
+" ----------- Syntastic  ---------------------------------
+"let g:syntastic_mode_map = { 'mode': 'active' }
+"let g:syntastic_ruby_checkers = ['mri']
+"let g:syntastic_cucumber_args="--profile syntastic"
+"let g:syntastic_javascript_checkers = ['']
+"let g:syntastic_html_checkers = ['']
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
