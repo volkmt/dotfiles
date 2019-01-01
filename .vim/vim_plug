@@ -5,17 +5,24 @@
 "   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " endif
 
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+
 " ========== Init Plugins ==========
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-
-" ========== Color Themes ==========
-" Solarized
-"Plug 'altercation/vim-colors-solarized'
-
-"One Dark
+"=========== Color Schemes =========
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
+Plug 'nlknguyen/papercolor-theme'
 
 " ========== Autoload ==========
 
@@ -31,6 +38,9 @@ Plug 'airblade/vim-gitgutter'
 " Indent guides
 Plug 'nathanaelkane/vim-indent-guides'
 
+"Syntax guide
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
 " ========== On-demand Python ==========
 
 " Flake 8
@@ -41,9 +51,6 @@ Plug 'tmhedberg/simpylfold', { 'for': ['python', 'python3'] }
 
 " Python Mode
 Plug 'python-mode/python-mode', { 'for': ['python', 'python3'] }
-
-" Jedi
-Plug 'davidhalter/jedi-vim', { 'for': ['python', 'python3'] }
 
 
 " ========== Finalize Plugins ==========
