@@ -21,13 +21,15 @@ call plug#begin('~/.vim/plugged')
 
 "=========== Color Schemes =========
 Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
 Plug 'nlknguyen/papercolor-theme'
 
 " ========== Autoload ==========
 
-" The NERD tree
+" NERDTree
 Plug 'scrooloose/nerdtree'
+
+" NERD Commenter
+Plug 'scrooloose/nerdcommenter'
 
 " Syntastic
 Plug 'scrooloose/syntastic'
